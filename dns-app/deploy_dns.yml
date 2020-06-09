@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dns
+  labels:
+    app: web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: as
+        image: ytp27/as:latest
+        ports:
+        - containerPort: 30001
+      - name: fs
+        image: ytp27/fs:latest
+        ports:
+        - containerPort: 30002
+      - name: us
+        image: ytp27/us:latest
+        ports:
+        - containerPort: 30003
+apiVersion: v1
+kind: Service
+metadata:
+  name: dns
+  labels:
+    app: web
+spec:
+  selector:
+    app: web
+  ports:
+      - name: as
+        protocol: UDP
+        port: 53533
+        nodePort: 30001
+        targetPort: 53533
+      - name: fs
+        protocol: TCP
+        port: 9090
+        nodePort: 30002
+        targetPort: 9090
+      - name: us
+        protocol: TCP
+        port: 8080
+        nodePort: 30003
+        targetPort: 8080
+  type: NodePort
