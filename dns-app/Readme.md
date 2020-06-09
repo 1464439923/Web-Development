@@ -28,14 +28,14 @@ Checking the configuration:
 	<li>Open another command prompt window in this directory</li>
 	<li>docker inspect dns</li>
 	<li>Check the ip address of three container: us, fs, as</li>
-	<img scr = "pic/config.png">
+	<img src = "pic/config.png">
 </ul> 
 
 Registering and visiting:
 <ul> 
 	<li>change the ip address in register_info in sendPutRequest.py to send PUT request to fs to register.</li>
 	<li>Open an browser and visit the following url to get the result (change X). http://0.0.0.0:8080/fibonacci?hostname=fibonacci.com&number=13&as_ip=X&as_port=53533</li>
-	<img scr = "pic/res.png">
+	<img src = "pic/res.png">
 </ul>  
 
 How to deploy the whole system on Kubernetes (extra credit):
