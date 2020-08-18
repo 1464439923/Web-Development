@@ -13,5 +13,4 @@ data = json.dumps(register_info)
 req = requests.put(url, data, headers = {'content-type': 'application/json'})
 print(req)
 
-
 #http://127.0.0.1:8080/fibonacci?hostname=fibonacci.com&number=12&as_ip=127.0.0.1
