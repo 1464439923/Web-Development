@@ -1,4 +1,4 @@
 # Web Development
 Technology Stack: python, flask, Docker, Kubernets, IBM Cloud
 <br>
-More detailed information in dns-app and simple-time-app folder.
+More detailed information in <b>dns-app</b> and <b>simple-time-app</b> folder.
